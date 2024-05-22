@@ -20,28 +20,35 @@ import {
   Img,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import SearchInput from '../SearchInput';
+import { User } from 'firebase/auth';
+import RightContent from './RightContent/RightContent';
 
 const Links = ['Pillars', 'Our Prophet', 'Community'];
 
 const NavLink = ({ children }: { children: ReactNode }) => (
+  
   <Link
     px={2}
     py={1}
     rounded={'md'}
     _hover={{
       textDecoration: 'none',
-      bg: "gray.50"
+      bg: "green.300"
     }}
-    href={'#'}>
+    href={'/community'}>
     {children}
   </Link>
 );
-
-export default function NavBar() {
+type NavBarProps = {
+  variant: "default" | "community";
+};
+export default function NavBar({variant}:NavBarProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
+     {variant === "default" ? (
       <Box bg={"green.100"} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
@@ -52,7 +59,16 @@ export default function NavBar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box>Revert Central</Box>
+            <Link 
+            href='/'
+            _hover={{
+              textDecoration: 'none',
+             
+            }}>
+              <Box>Revert Central</Box>
+
+            </Link>
+           
             <HStack
               as={'nav'}
               spacing={4}
@@ -96,8 +112,37 @@ export default function NavBar() {
             </Stack>
           </Box>
         ) : null}
+     
       </Box>
+  ):  <Flex
+  bg="green.100"
+  height="44px"
+  padding="6px 12px"
+  justifyContent={{ md: "space-between" }}
+  align={"center"}
+>
+<Link 
+            href='/'
+            _hover={{
+              textDecoration: 'none',
+             
+            }}>
+              <Box>Revert Central</Box>
 
+            </Link>
+  <Flex
+    align="center"
+    width={{ base: "40px", md: "auto" }}
+    mr={{ base: 0, md: 2 }}
+    cursor="pointer"
+    // onClick={() => onSelectMenuItem(defaultMenuItem)}
+  >
+    
+  </Flex>
+  {/* {user && <Directory />} */}
+  <SearchInput  />
+  {/* <RightContent /> */}
+</Flex>}
       
     </>
   );
