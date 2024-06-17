@@ -3,8 +3,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import { BsLink45Deg } from "react-icons/bs";
-import { FaReddit } from "react-icons/fa";
-import { IoImageOutline } from "react-icons/io5";
+
+import { IoAccessibilityOutline, IoImageOutline } from "react-icons/io5";
 import useDirectory from "../../hooks/useDirectory";
 
 type CreatePostProps = {};
@@ -34,7 +34,7 @@ const CreatePostLink: React.FC<CreatePostProps> = () => {
       p={2}
       mb={4}
     >
-      <Icon as={FaReddit} fontSize={36} color="gray.300" mr={4} />
+      <Icon as={IoAccessibilityOutline} fontSize={36} color="gray.300" mr={4} />
       <Input
         placeholder="Create Post"
         fontSize="10pt"
@@ -42,13 +42,13 @@ const CreatePostLink: React.FC<CreatePostProps> = () => {
         _hover={{
           bg: "white",
           border: "1px solid",
-          borderColor: "blue.500",
+          borderColor: "green.500",
         }}
         _focus={{
           outline: "none",
           bg: "white",
           border: "1px solid",
-          borderColor: "blue.500",
+          borderColor: "green.500",
         }}
         bg="gray.50"
         borderColor="gray.200"

@@ -12,10 +12,11 @@ import {
 import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { FaReddit } from "react-icons/fa";
+
 import { Community } from "../../atoms/communitiesAtom";
 import { firestore } from "../../firebase/clientApp";
 import useCommunityData from "../../hooks/useCommunityData";
+import { IoAccessibilityOutline } from "react-icons/io5";
 
 type RecommendationsProps = {};
 
@@ -63,7 +64,7 @@ const Recommendations: React.FC<RecommendationsProps> = () => {
         align="flex-end"
         color="white"
         p="6px 10px"
-        bg="blue.500"
+        bg="green.500"
         height="70px"
         borderRadius="4px 4px 0px 0px"
         fontWeight={600}
@@ -121,9 +122,9 @@ const Recommendations: React.FC<RecommendationsProps> = () => {
                           />
                         ) : (
                           <Icon
-                            as={FaReddit}
+                            as={IoAccessibilityOutline}
                             fontSize={30}
-                            color="brand.100"
+                            color="green.100"
                             mr={2}
                           />
                         )}

@@ -21,7 +21,7 @@ import { auth, firestore, storage } from "../../firebase/clientApp";
 import { Community, communityState } from "../../atoms/communitiesAtom";
 import moment from "moment";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { FaReddit } from "react-icons/fa";
+import { IoAccessibilityOutline } from "react-icons/io5";
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
 import { doc, updateDoc } from "firebase/firestore";
 
@@ -98,7 +98,7 @@ const About: React.FC<AboutProps> = ({
         align="center"
         p={3}
         color="white"
-        bg="blue.400"
+        bg="green.400"
         borderRadius="4px 4px 0px 0px"
       >
         <Text fontSize="10pt" fontWeight={700}>
@@ -127,7 +127,7 @@ const About: React.FC<AboutProps> = ({
                 borderColor="gray.300"
                 cursor="pointer"
               >
-                <Text fontSize="9pt" fontWeight={700} color="blue.500">
+                <Text fontSize="9pt" fontWeight={700} color="green.500">
                   Add description
                 </Text>
               </Box>
@@ -178,7 +178,7 @@ const About: React.FC<AboutProps> = ({
                     <Text fontWeight={600}>Admin</Text>
                     <Flex align="center" justify="space-between">
                       <Text
-                        color="blue.500"
+                        color="green.500"
                         cursor="pointer"
                         _hover={{ textDecoration: "underline" }}
                         onClick={() => selectFileRef.current?.click()}
@@ -194,9 +194,9 @@ const About: React.FC<AboutProps> = ({
                         />
                       ) : (
                         <Icon
-                          as={FaReddit}
+                          as={IoAccessibilityOutline}
                           fontSize={40}
-                          color="brand.100"
+                          color="green.100"
                           mr={2}
                         />
                       )}

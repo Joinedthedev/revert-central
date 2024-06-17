@@ -14,6 +14,7 @@ import React from "react";
 import { ChevronRightIcon, ChatIcon } from "@chakra-ui/icons";
 import { featureCards } from "@/data/data";
 import PillarCard from "@/components/PillarCard";
+import Link from "next/link";
 
 const index = () => {
   return (
@@ -52,17 +53,19 @@ const index = () => {
                 basics of what it means to be a muslim.{" "}
               </Text>
               <Box ml={"auto"} pt={2}>
-                <Button
-                  rightIcon={<Icon as={ChevronRightIcon} />}
-                  size={"md"}
-                  bgColor={"green.400"}
-                  _hover={{
-                    bg: "green.300",
-                  }}
-                >
-                  {" "}
-                  Get Started
-                </Button>
+                <Link href={"/PillarsIslam"}>
+                  <Button
+                    rightIcon={<Icon as={ChevronRightIcon} />}
+                    size={"md"}
+                    bgColor={"green.400"}
+                    _hover={{
+                      bg: "green.300",
+                    }}
+                  >
+                    {" "}
+                    Get Started
+                  </Button>
+                </Link>
               </Box>
             </Box>
 
@@ -77,17 +80,19 @@ const index = () => {
                 You're not alone! Join the discussion between thousands of
                 reverts.
               </Text>
-              <Button
-                rightIcon={<Icon as={ChatIcon} />}
-                size={"md"}
-                bgColor={"green.400"}
-                _hover={{
-                  bg: "green.300",
-                }}
-              >
-                {" "}
-                Join Our Community
-              </Button>
+              <Link href={"/community"}>
+                <Button
+                  rightIcon={<Icon as={ChatIcon} />}
+                  size={"md"}
+                  bgColor={"green.400"}
+                  _hover={{
+                    bg: "green.300",
+                  }}
+                >
+                  {" "}
+                  Join Our Community
+                </Button>
+              </Link>
             </VStack>
           </HStack>
           <Flex borderRadius={5} p={5} bgColor={"green.200"}>

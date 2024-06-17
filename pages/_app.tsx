@@ -4,22 +4,23 @@ import { ChakraProvider } from "@chakra-ui/react";
 import NavBar from "../components/Navbar/NavBar";
 import { useRouter } from "next/router";
 import { RecoilRoot } from "recoil";
-
+import Layout from "@/components/Layout/Layout";
+import { Suspense } from "react";
+import Loading from "@/components/Loading";
 export default function App({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-  const getNavBarVariant = () => {
-    if (router.pathname === "/community") {
-      return "community";
-    }
-    return "default";
-  };
+  
 
   return (
+    <ChakraProvider>
     <RecoilRoot>
-      <ChakraProvider>
-        <NavBar variant={getNavBarVariant()} />
+   
+      <Layout>
+        <Suspense fallback={<Loading/>}>
         <Component {...pageProps} />
-      </ChakraProvider>
-    </RecoilRoot>
+        </Suspense>
+      </Layout>
+
+  </RecoilRoot>
+  </ChakraProvider>
   );
 }

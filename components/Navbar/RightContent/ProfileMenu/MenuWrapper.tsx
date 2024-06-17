@@ -18,9 +18,9 @@ import { auth } from "../../../../firebase/clientApp";
 import NoUserList from "./NoUserList";
 import UserList from "./UserList";
 
-import { FaRedditSquare } from "react-icons/fa";
+
 import { VscAccount } from "react-icons/vsc";
-import { IoSparkles } from "react-icons/io5";
+import { IoAccessibilityOutline, IoSparkles } from "react-icons/io5";
 
 type MenuWrapperProps = {};
 
@@ -43,7 +43,7 @@ const MenuWrapper: React.FC<MenuWrapperProps> = () => {
                   fontSize={24}
                   mr={1}
                   color="gray.300"
-                  as={FaRedditSquare}
+                  as={IoAccessibilityOutline}
                 />
                 <Box
                   display={{ base: "none", lg: "flex" }}

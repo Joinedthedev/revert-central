@@ -11,9 +11,9 @@ type PillarCardProps = {
 const PillarCard = ({ imageSrc, text, sendSomewhere, title }: PillarCardProps) => {
   return (
     <Link href={sendSomewhere}>
-      <VStack  align={"center"} w={"150px"}>
-        <Text color={"green.800"} fontSize={"lg"}>{title}</Text>
-        <Box borderRadius={5} border={"5px"} borderStyle={"solid"} borderColor={"green.300"}>
+      <VStack width={"200px"} align={"center"} >
+        <Text textAlign={"center"} color={"green.800"} fontSize={"lg"}>{title}</Text>
+        <Box width={"150px"} borderRadius={5} border={"5px"} borderStyle={"solid"} borderColor={"green.300"}>
           <Image src={imageSrc} boxSize={"150px"} objectFit={"cover"} />
         </Box>
         <Text textAlign={"center"} fontSize={"sm"}color={"green.800"}>{text}</Text>

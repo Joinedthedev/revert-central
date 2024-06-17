@@ -75,7 +75,7 @@ const Login: React.FC<LoginProps> = ({ toggleView }) => {
         </Text>
         <Text
           fontSize="9pt"
-          color="blue.500"
+          color="green.500"
           cursor="pointer"
           onClick={() => toggleView("resetPassword")}
         >
@@ -85,7 +85,7 @@ const Login: React.FC<LoginProps> = ({ toggleView }) => {
       <Flex fontSize="9pt" justifyContent="center">
         <Text mr={1}>New here?</Text>
         <Text
-          color="blue.500"
+          color="green.500"
           fontWeight={700}
           cursor="pointer"
           onClick={() => toggleView("signup")}

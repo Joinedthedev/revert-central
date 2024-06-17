@@ -1,9 +1,10 @@
 import React from "react";
 import { Box, Button, Flex, Icon, Text, Image } from "@chakra-ui/react";
-import { FaReddit } from "react-icons/fa";
+
 import { Community, communityState } from "../../atoms/communitiesAtom";
 import useCommunityData from "../../hooks/useCommunityData";
 import { useSetRecoilState } from "recoil";
+import { IoAccessibilityOutline } from "react-icons/io5";
 
 type HeaderProps = {
   communityData: Community;
@@ -22,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({ communityData }) => {
 
   return (
     <Flex direction="column" width="100%" height="146px">
-      <Box height="50%" bg="blue.400" />
+      <Box height="50%" bg="green.400" />
       <Flex justifyContent="center" bg="white" height="50%">
         <Flex width="95%" maxWidth="860px">
           {/* IMAGE URL IS ADDED AT THE VERY END BEFORE DUMMY DATA - USE ICON AT FIRST */}
@@ -34,16 +35,16 @@ const Header: React.FC<HeaderProps> = ({ communityData }) => {
               alt="Dan Abramov"
               position="relative"
               top={-3}
-              color="blue.500"
+              color="green.500"
               border="4px solid white"
             />
           ) : (
             <Icon
-              as={FaReddit}
+              as={IoAccessibilityOutline}
               fontSize={64}
               position="relative"
               top={-3}
-              color="blue.500"
+              color="green.500"
               border="4px solid white"
               borderRadius="50%"
             />

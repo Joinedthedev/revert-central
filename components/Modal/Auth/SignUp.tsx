@@ -83,7 +83,7 @@ const SignUp: React.FC<SignUpProps> = ({ toggleView }) => {
       <Flex fontSize="9pt" justifyContent="center">
         <Text mr={1}>Have an account?</Text>
         <Text
-          color="blue.500"
+          color="green.500"
           fontWeight={700}
           cursor="pointer"
           onClick={() => toggleView("login")}

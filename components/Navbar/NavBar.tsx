@@ -23,6 +23,18 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import SearchInput from '../SearchInput';
 import { User } from 'firebase/auth';
 import RightContent from './RightContent/RightContent';
+import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useSetRecoilState } from "recoil";
+import {
+  defaultMenuItem,
+  directoryMenuState,
+} from "../../atoms/directoryMenuAtom";
+import { auth } from "../../firebase/clientApp";
+import Directory from './Directory/Directory';
+import router from "next/router";
+import useDirectory from '@/hooks/useDirectory';
+
 
 const Links = ['Pillars', 'Our Prophet', 'Community'];
 
@@ -45,6 +57,8 @@ type NavBarProps = {
 };
 export default function NavBar({variant}:NavBarProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [user] = useAuthState(auth);
+  const { onSelectMenuItem } = useDirectory();
 
   return (
     <>
@@ -114,14 +128,20 @@ export default function NavBar({variant}:NavBarProps) {
         ) : null}
      
       </Box>
-  ):  <Flex
-  bg="green.100"
+  ):   <Flex
+  bg="green.300"
   height="44px"
   padding="6px 12px"
   justifyContent={{ md: "space-between" }}
-  align={"center"}
 >
-<Link 
+  <Flex
+    align="center"
+    width={{ base: "40px", md: "auto" }}
+    mr={{ base: 0, md: 2 }}
+    cursor="pointer"
+    onClick={() => onSelectMenuItem(defaultMenuItem)}
+  >
+      <Link 
             href='/'
             _hover={{
               textDecoration: 'none',
@@ -130,20 +150,14 @@ export default function NavBar({variant}:NavBarProps) {
               <Box>Revert Central</Box>
 
             </Link>
-  <Flex
-    align="center"
-    width={{ base: "40px", md: "auto" }}
-    mr={{ base: 0, md: 2 }}
-    cursor="pointer"
-    // onClick={() => onSelectMenuItem(defaultMenuItem)}
-  >
     
   </Flex>
-  {/* {user && <Directory />} */}
-  <SearchInput  />
-  {/* <RightContent /> */}
-</Flex>}
-      
+  {user && <Directory />}
+  <SearchInput user={user as User} />
+  <RightContent user={user as User} />
+</Flex>
+
+          } 
     </>
   );
 }
